@@ -1,0 +1,94 @@
+%%%% -*- Mode: LaTeX -*-
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[oneside,onecolumn,12pt,a4paper,openany]{report}
+\usepackage{microtype}
+
+\usepackage[notindex]{tocbibind}
+
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{amsbsy}
+\usepackage{amsthm}
+\usepackage{bbm} % for \mathbbm{1}
+\usepackage{imakeidx}
+\usepackage{alltt}
+\usepackage{holtexbasic}
+\usepackage{LaTeX/layout}
+\usepackage{graphicx}
+\usepackage{LaTeX/proof}
+\usepackage{supertabular}
+\usepackage{url}
+\usepackage{fancyvrb}
+\usepackage[format=hang,justification=raggedright]{caption}  % multi-line figure caption
+
+\hyphenation{docu-ments}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+
+% ---------------------------------------------------------------------
+% Input defined macros and commands
+% ---------------------------------------------------------------------
+\input{LaTeX/commands}
+
+%\includeonly{title,contents,preface,ML,logic,semantics,system,drules,conv,see}
+
+%\includeonly{title,contents,preface,ML,logic,semantics,system,drules,conv,index,see}
+%\includeonly{title,contents,preface,ML}
+%\includeonly{tactics}
+%\includeonly{preface,ack}
+%\includeonly{logic,semantics}
+%\includeonly{system,theories,libraries}
+
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\hypersetup{
+  pdftitle={IL Research Proposal},
+  pdfauthor={Kai Phan},
+  pdfsubject={Incorrectness Logic},
+  pdfkeywords={Interactive Theorem Proving; Higher Order Logic},
+  pdfdisplaydoctitle=true
+}
+
+\usepackage{breakurl} % it depends on hyperref
+
+\usepackage{centernot}
+\newcommand{\notiff}{\nLeftrightarrow}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+
+
+\makeindex[intoc]
+\begin{document}
+
+
+   \setlength{\unitlength}{1mm}           % unit of length = 1mm
+   \setlength{\baselineskip}{16pt}        % line spacing = 16pt
+
+   %\include{abstract}                      % preface to entire description
+   %\include{background}
+   \include{plan}
+
+   % ---------------------------------------------------------------------
+   % references to entire description
+   % ---------------------------------------------------------------------
+
+   % The "plainnat" style will show also the DOI and URL, etc.
+   \bibliography{bibfile}
+
+
+\small
+\emergencystretch=14pt
+\printindex
+
+\end{document}

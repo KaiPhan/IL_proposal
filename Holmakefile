@@ -1,0 +1,21 @@
+INCLUDES = $(HOLDIR)/examples/probability
+
+OPTIONS = QUIT_ON_FAILURE
+MUNGE = ./munge.exe
+MUNGE_DEPS = paperTheory
+
+EXTRA_CLEANS = $(MUNGE) report.pdf *.aux *.log *.toc
+
+all: report.pdf
+
+$(MUNGE): $(patsubst %,%.uo,$(MUNGE_DEPS))
+	$(HOLDIR)/bin/mkmunge.exe $(MUNGE_DEPS)
+
+report.pdf: report.tex holtexbasic.sty
+	pdflatex report
+	pdflatex report
+	bibtex report
+	pdflatex report
+	pdflatex report.tex
+
+.PHONY: all
